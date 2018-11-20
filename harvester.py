@@ -13,19 +13,14 @@ print "from url:", url
 
 options = {
     'format': 'mp4',
-    'outtmpl': '%(title)s.%(ext)s'
-    # 'postprocessors': [{
-    #     'key': 'FFmpegExtractAudio',
-    #     'preferredcodec': 'mp3',
-    #     'preferredquality': '192',
-    # }],	
+    'outtmpl': '%(title)s.%(ext)s'	
 }
 
 with youtube_dl.YoutubeDL(options) as ydl:
+	# grab the video data
 	info = ydl.extract_info(url, download=False)
-	# grab the video title
 	video_title = info.get('title', None)
-	# slugify it for the 
+	# slugify it for the directory name
 	dir_name = slugify(video_title)
 	# make directory
 	print('creating ' + dir_name + ' directory')
@@ -55,6 +50,7 @@ audio_filename = video_title + '.mp3'
 # create mp3 version
 # subprocess is like issuing a unix command
 # ffmpeg must be installed
+# does ffmpeg -i filename audio_filename
 subprocess.call(['ffmpeg', '-i', filename, audio_filename])
 
 
