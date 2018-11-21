@@ -4,9 +4,11 @@ import os
 import time
 import youtube_dl
 import subprocess
+import shutil
 from slugify import slugify
 
 script, url = argv
+cwd = os.getcwd()
 
 print "harvesting..."
 print "from url:", url
@@ -26,7 +28,7 @@ with youtube_dl.YoutubeDL(options) as ydl:
 	print('creating ' + dir_name + ' directory')
 	os.mkdir(dir_name)
 	# go to that directory
-	os.chdir(dir_name)	
+	os.chdir(dir_name)
 	# print('my title is ' + info.get('title', None))
 	ydl.download([url])
 
@@ -53,5 +55,10 @@ audio_filename = video_title + '.mp3'
 # does ffmpeg -i filename audio_filename
 subprocess.call(['ffmpeg', '-i', filename, audio_filename])
 
-
+os.chdir(cwd)
+print('now moving the folder')
+dir_path = cwd + '/' + dir_name
+archive_path = cwd + '/media/' + dir_name
+print(archive_path)
+shutil.move(dir_path, archive_path)
 
