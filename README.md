@@ -10,11 +10,11 @@ Say you like listening to free lectures archived on YouTube while you're at your
 
 First, install the ffmpeg suite of tools system-wide on your computer and make sure the `ffmpeg` command is available on the command line.
 
-Download the repo, then cd into it and set up the virtual environment:
+Download the repo, then cd into it and set up the virtual environment with Python 2.7:
 
 `virtualenv venv`
 
-`virtualenv -p /usr/bin/python2.7 my_project`
+`virtualenv -p /usr/bin/python2.7 venv`
 
 `source venv/bin/activate`
 
