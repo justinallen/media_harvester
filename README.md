@@ -1,6 +1,6 @@
 # Media Harvester
 
-A simple Python script for swiftly downloading video and audio from YouTube and other online streaming sites. Wraps some conveniences around the [youtube-dl](https://rg3.github.io/youtube-dl).
+A simple Python script for swiftly downloading video and audio from YouTube and other online streaming sites. Wraps some conveniences around [youtube-dl](https://github.com/rg3/youtube-dl) and adds an audio ripper via [ffmpeg](https://www.ffmpeg.org).
 
 **Use case:** 
 
@@ -8,7 +8,7 @@ Say you like listening to free lectures archived on YouTube while you're at your
 
 **Installation / usage instructions:**
 
-First, install the ffmpeg library system-wide on your computer and make sure the `ffmpeg` command is available on the command line.
+First, install the ffmpeg suite of tools system-wide on your computer and make sure the `ffmpeg` command is available on the command line.
 
 Download the repo, then cd into it and set up the virtual environment:
 
@@ -20,3 +20,5 @@ Download the repo, then cd into it and set up the virtual environment:
 Then, run:
 
 `python harvester.py [url of page to harvest media from]`
+
+**Note:** Only tested on Mac command line; should work similarly in Ubuntu or other *nix system.
