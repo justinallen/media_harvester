@@ -13,8 +13,11 @@ First, install the ffmpeg suite of tools system-wide on your computer and make s
 Download the repo, then cd into it and set up the virtual environment:
 
 `virtualenv venv`
+
 `virtualenv -p /usr/bin/python2.7 my_project`
+
 `source venv/bin/activate`
+
 `pip install -r requirements.txt`
 
 Then, run:
